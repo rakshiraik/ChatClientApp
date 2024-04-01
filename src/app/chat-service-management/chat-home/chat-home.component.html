@@ -1,0 +1,47 @@
+<!-- <p>chat-home works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 1</h5>
+            <p class="card-text">This is the first card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 2</h5>
+            <p class="card-text">This is the second card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 3</h5>
+            <p class="card-text">This is the third card.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <div class="container">
+    <button (click)="loadRegisterRoom()" class="btn btn-primary">Register Room</button>
+    <div class="row">
+      <div class="col-md-4 mb-3" *ngFor="let room of this.objectList">
+        <div class="card">
+          <div class="card-header">
+            Room ID: {{ room.id }}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ room.roomName }}</h5>
+            <a href="Chat/room/{{ room.id }}" class="btn btn-primary">Join Room</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

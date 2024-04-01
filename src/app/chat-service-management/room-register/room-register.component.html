@@ -1,0 +1,21 @@
+<div class="container">
+    <h2 class="header">Create Room</h2>
+    <div class="row">
+      <div class="col col-md-8">
+        <form [formGroup]="roomForm" (ngSubmit)="save()">
+          <div class="mb-3">
+            <label for="Name" class="form-label">Room Name</label>
+            <input type="text" class="form-control" id="roomName" formControlName="roomName" />
+            <div *ngIf="showNameError && this.roomForm.get('roomName')?.hasError('required')" class="error-message">
+              Room Name is required
+            </div>
+          </div>
+          <div style="float: left;">
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+
+        </form>
+  
+      </div>
+    </div>
+  </div>

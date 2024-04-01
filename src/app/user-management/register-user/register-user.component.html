@@ -1,0 +1,49 @@
+<div class="container">
+  <h2 class="header">Add User</h2>
+  <hr>
+  <button (click)="getUser()" class="btn btn-primary">GetUser</button>
+  <button (click)="getUser()" class="btn btn-primary">GetUser1</button>
+  <div class="row">
+    <div class="col col-md-8">
+      <form [formGroup]="userForm" (ngSubmit)="save()">
+        <div class="mb-3">
+          <label for="Name" class="form-label">Email</label>
+          <input type="text" class="form-control" id="email" formControlName="email" />
+          <div *ngIf="showNameError && this.userForm.get('email')?.hasError('required')" class="error-message">
+            Email is required
+          </div>
+          <div *ngIf="showNameError && this.userForm.get('email')?.errors?.email" class="error-message">
+            Email is not proper
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" />
+          <div *ngIf="showNameError && this.userForm.get('password')?.hasError('required')" class="error-message">
+            Password is required
+          </div>
+          <div *ngIf="showNameError && this.userForm.get('password').errors?.pattern && userForm.get('password').touched">
+            Password must contain at least one digit, one lowercase letter, one uppercase letter, one special character, and be at least 8 characters long.
+          </div>
+          <div *ngIf="showNameError && this.userForm.get('password').errors?.invalidPassword && userForm.get('password').touched">
+            Password must contain at least one digit, one lowercase letter, one uppercase letter, one special character, and be at least 8 characters long.
+          </div>
+
+        </div>
+        <div class="mb-3">
+          <label for="confirm" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirm" formControlName="confirm" />
+          <div *ngIf="showNameError && this.userForm.get('confirm')?.hasError('required')" class="error-message">
+            Confirm Password is required
+          </div>
+     </div>
+        <div style="float: left;">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>
