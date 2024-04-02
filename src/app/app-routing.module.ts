@@ -8,6 +8,11 @@ import { ChatServiceManagementRoutingModule } from './chat-service-management/ch
 
 const routes: Routes = [ 
   { 
+    path: '', 
+    loadChildren: () => import('./chat-service-management/chat-service-management.module').then(m => m.ChatServiceManagementModule) ,
+    canActivate: [AuthGuard]
+  },
+  { 
     path: 'User', 
     loadChildren: () => import('./user-management/user-management-routing.module').then(m => m.UserManagementRoutingModule) ,
     //canActivateChild: [AuthGuard]

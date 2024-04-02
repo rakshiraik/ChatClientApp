@@ -5,12 +5,14 @@ import { ChatServiceManagementRoutingModule } from './chat-service-management-ro
 import { ChatHomeComponent } from './chat-home/chat-home.component';
 import { RoomRegisterComponent } from './room-register/room-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RoomPageComponent } from './room-page/room-page.component';
 
 
 @NgModule({
   declarations: [
     ChatHomeComponent,
-    RoomRegisterComponent
+    RoomRegisterComponent,
+    RoomPageComponent
   ],
   imports: [
     CommonModule,

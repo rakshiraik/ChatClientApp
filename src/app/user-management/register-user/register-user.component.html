@@ -1,8 +1,6 @@
 <div class="container">
   <h2 class="header">Add User</h2>
   <hr>
-  <button (click)="getUser()" class="btn btn-primary">GetUser</button>
-  <button (click)="getUser()" class="btn btn-primary">GetUser1</button>
   <div class="row">
     <div class="col col-md-8">
       <form [formGroup]="userForm" (ngSubmit)="save()">
@@ -41,6 +39,9 @@
           <button type="submit" class="btn btn-primary">Register</button>
         </div>
 
+        <div style="float: right;">
+          <a routerLink="/User/login" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Click here for Login</a>
+        </div>
 
       </form>
 

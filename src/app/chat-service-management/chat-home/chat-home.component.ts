@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ChatHomeComponent implements OnInit {
 
+  isRoomFull:boolean=false;
   objectList: any[] = [];
   constructor(private chatMAnageServiceService:ChatMAnageServiceService,private router: Router) {
     console.log('from chat');
