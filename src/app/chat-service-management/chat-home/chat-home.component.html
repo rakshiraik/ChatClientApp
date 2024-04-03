@@ -1,55 +1,25 @@
-<!-- <p>chat-home works!</p>
 <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card 1</h5>
-            <p class="card-text">This is the first card.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card 2</h5>
-            <p class="card-text">This is the second card.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card 3</h5>
-            <p class="card-text">This is the third card.</p>
-          </div>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-md-4 ">
+      <button (click)="loadRegisterRoom()" class="btn btn-primary custom-btn">Register Room</button>
     </div>
-  </div> -->
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+    </div>
 
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 ">
-        <button (click)="loadRegisterRoom()" class="btn btn-primary custom-btn">Register Room</button>
-      </div>
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-      </div>
-  
     <div></div>
     <div class="row">
-      <div class="col-md-4 mb-3" *ngFor="let room of this.objectList">
+      <div class="col-md-4 mb-3" *ngFor="let room of objectList">
         <div class="card">
           <div class="card-header">
             <h5 class="card-title">{{ room.roomName }}</h5>
           </div>
-          <div class="card-body">   
-            <div *ngIf="!isRoomFull">         
-            <a href="Chat/room/{{ room.id }}" class="btn btn-primary">Join Room</a>
-          </div>
+          <div class="card-body">
+            <div *ngIf="!isRoomFull">
+              <button type="button" class="btn btn-primary" (click)="joinRoom(room.roomName, room.id)">Join
+                Room</button>
+            </div>
             <div *ngIf="isRoomFull" class="alert alert-danger" role="alert">
               This room is full
             </div>

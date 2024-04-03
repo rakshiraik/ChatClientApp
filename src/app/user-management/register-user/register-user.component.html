@@ -20,11 +20,15 @@
           <div *ngIf="showNameError && this.userForm.get('password')?.hasError('required')" class="error-message">
             Password is required
           </div>
-          <div *ngIf="showNameError && this.userForm.get('password').errors?.pattern && userForm.get('password').touched">
-            Password must contain at least one digit, one lowercase letter, one uppercase letter, one special character, and be at least 8 characters long.
+          <div
+            *ngIf="showNameError && this.userForm.get('password').errors?.pattern && userForm.get('password').touched">
+            Password must contain at least one digit, one lowercase letter, one uppercase letter, one special character,
+            and be at least 8 characters long.
           </div>
-          <div *ngIf="showNameError && this.userForm.get('password').errors?.invalidPassword && userForm.get('password').touched">
-            Password must contain at least one digit, one lowercase letter, one uppercase letter, one special character, and be at least 8 characters long.
+          <div
+            *ngIf="showNameError && this.userForm.get('password').errors?.invalidPassword && userForm.get('password').touched">
+            Password must contain at least one digit, one lowercase letter, one uppercase letter, one special character,
+            and be at least 8 characters long.
           </div>
 
         </div>
@@ -34,13 +38,15 @@
           <div *ngIf="showNameError && this.userForm.get('confirm')?.hasError('required')" class="error-message">
             Confirm Password is required
           </div>
-     </div>
+        </div>
         <div style="float: left;">
           <button type="submit" class="btn btn-primary">Register</button>
         </div>
 
         <div style="float: right;">
-          <a routerLink="/User/login" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Click here for Login</a>
+          <a routerLink="/User/login"
+            class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Click here for
+            Login</a>
         </div>
 
       </form>

@@ -9,7 +9,6 @@ export class AuthServiceService {
   private authSecretKey = 'userContext';
 
   constructor() { 
-    debugger
     const userContext = localStorage.getItem("userContext")!; // you probably want to store it in localStorage or something
     const tokenData=JSON.parse(userContext);
     if (tokenData) {
@@ -20,7 +19,6 @@ export class AuthServiceService {
   }
 
   isAuthenticatedUser(): boolean {
-    debugger
     const userContext = localStorage.getItem("userContext")!; // you probably want to store it in localStorage or something
     const tokenData=JSON.parse(userContext);
     if (tokenData) {

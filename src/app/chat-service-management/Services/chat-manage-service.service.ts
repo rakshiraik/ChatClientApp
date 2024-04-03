@@ -13,7 +13,6 @@ export class ChatMAnageServiceService {
 
   
   public getRooms(): Observable<any> { 
-debugger
     const userContext = localStorage.getItem("userContext")!; // you probably want to store it in localStorage or something
     const tokenData=JSON.parse(userContext);
     if (tokenData) {
@@ -22,7 +21,6 @@ debugger
    
       }
     }
-       debugger
     return this.http.get<any[]>(
       this.apiUrl+"?id="+this.id,      
       )
@@ -31,9 +29,22 @@ debugger
   public regUser(user: any): Observable<any> { 
     user.id=0;
     user.noOfPeopleAllowed=0;
-    debugger
     return this.http.post<any[]>(
       this.apiUrl+"/RegisterRoom",user      
       )
+  }
+
+  public getLogedUser(){
+
+    const userContext = localStorage.getItem("userContext")!; // you probably want to store it in localStorage or something
+    const tokenData=JSON.parse(userContext);
+    if (tokenData) {
+      if (tokenData!.userId) {
+        this.id=tokenData!.userId;
+   
+      }
+    }
+    return this.id;
+
   }
 }

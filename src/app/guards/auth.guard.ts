@@ -18,12 +18,10 @@ export class AuthGuard implements CanActivate {
   }
 
   canLoad(): boolean {
-    debugger
    return this.checkAuth();
   }
 
   private checkAuth(): boolean {
-    debugger
     if (this.authServiceService.isAuthenticatedUser()) {
       return true;
     } else {
