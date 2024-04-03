@@ -29,14 +29,12 @@ export class UserManagementService {
 
 
   public regUser(user: any): Observable<any> { 
-    debugger
     return this.http.post<any[]>(
       this.apiUrl+"/RegisterUser",user      
       )
   }
 
   public Login(user: any): Observable<any> { 
-    debugger
     return this.http.post<any[]>(
       this.apiUrl+"/LoginUser",user      
       )

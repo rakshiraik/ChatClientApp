@@ -23,7 +23,6 @@ export class RoomRegisterComponent implements OnInit {
   }
 
   public save() {  
-    debugger
     console.log(this.roomForm.value);
     if(!this.roomForm?.valid){
       

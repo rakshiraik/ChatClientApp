@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
   public OnSubmit() {  
-    debugger
     console.log(this.userForm.value);
     if(!this.userForm?.valid){
       this.showNameError=true;      
@@ -52,7 +51,6 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(): void  {
-    debugger
     console.log(this.userForm.value);
     if(!this.userForm?.valid){
       this.showNameError=true;      
