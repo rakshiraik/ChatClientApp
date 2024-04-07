@@ -10,57 +10,51 @@ import { ChatService } from '../Services/chat.service';
 })
 export class ChatHomeComponent implements OnInit {
   chatService = inject(ChatService);
-  isRoomFull:boolean=false;
+  isRoomFull: boolean = false;
   objectList: any[] = [];
-  constructor(private chatMAnageServiceService:ChatMAnageServiceService,private router: Router) {
+  constructor(private chatMAnageServiceService: ChatMAnageServiceService, private router: Router) {
     console.log('from chat');
     this.getRooms()
-   }
+  }
 
   ngOnInit(): void {
 
     console.log('from chat init');
   }
 
+  public getRooms() {
+    this.chatMAnageServiceService.getRooms().subscribe({
 
-    public getRooms() { 
-      this.chatMAnageServiceService.getRooms().subscribe({
-  
-       next:data=>{       
-         
-         this.objectList=data;
-         console.log(this.objectList);
-         
-       },
-       error:errdata=>{
-           console.log(errdata);
-       }
-       
-      });
-   }
-   joinRoom1(event: Event, roomName: string, roomId: string) {
-    debugger
-    event.preventDefault(); // Prevent form submission
-  
-    // Your logic to join the room goes here
+      next: data => {
+
+        this.objectList = data;
+        console.log(this.objectList);
+
+      },
+      error: errdata => {
+        console.log(errdata);
+      }
+
+    });
   }
-   joinRoom(roomName: string, roomId: string) {
-debugger
+
+  joinRoom(roomName: string, roomId: string) {
+    debugger
     //sessionStorage.setItem("user", user);
     //sessionStorage.setItem("room", room);
-    var userid=this.chatMAnageServiceService.getLogedUser();
-    this.chatService.joinRoom(userid,roomId.toString())
-    .then(()=>{
-      this.router.navigate(['Chat/room/{{ roomId }}']);
-    }).catch((err)=>{
-      console.log(err);
-    })
+    var userid = this.chatMAnageServiceService.getLogedUser();
+    this.chatService.joinRoom(userid, roomId.toString())
+      .then(() => {
+        this.router.navigate(['Chat/room/{{ roomId }}']);
+      }).catch((err) => {
+        console.log(err);
+      })
     // Handle form submission logic here, including roomName and roomId
   }
 
 
-   public loadRegisterRoom() {  
+  public loadRegisterRoom() {
     this.router.navigate(['/Chat/RegsiterRoom']);
- }
+  }
 
 }
